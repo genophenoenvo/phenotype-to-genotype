@@ -121,7 +121,7 @@ def main(args):
     snp_df.to_csv(os.path.join(curr_wd, args.output_path, args.row_matrices.split(".")[4] + '_full_SNP_list.csv'), index=False, header=['SNP_ID']) 
     max_ind = torch.argmax(torch.tensor(corr_coeff, device="cpu"))
     filtered_snp_df = pd.DataFrame(snp_list[0:max_ind])
-    filtered_snp_df.to_csv(os.path.join(curr_wd, args.output_path, args.row_matrices.split(".")[4] + '_effective_SNP_list.csv'), index=False, header=['SNP_ID']) 
+    filtered_snp_df.to_csv(os.path.join(curr_wd, args.output_path, args.row_matrices.split(".")[4] + '_significant_SNP_list.csv'), index=False, header=['SNP_ID']) 
     print("Number of Effective SNPs:" + str(len(snp_list[0:max_ind])))
     
     plt.figure(figsize=(30,10))
