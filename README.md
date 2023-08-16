@@ -6,11 +6,11 @@ This work describes a novel approach to deduce the genetic basis of two phenotyp
 ## Pipeline of Our Method
 ![Image not available.](figures/Figure1.jpg)
 
-## Datasets:
-..* _Normalized_ Phenotypic Trait Data for MAC Season 6: 
-..* Phenotypic Trait Data for Clemson: 
-..* GWAS-filtered SNPs of _Sorghum Bicolor_ based on phenotype: 
-..* SNPs of _Sorghum Bicolor_:
+## Datasets Used:
+* _Normalized_ phenotypic trait data for MAC Season 6: 
+* Phenotypic trait data for Clemson for generalizability test: 
+* GWAS-filtered SNPs of _Sorghum Bicolor_ based on phenotypes maximum canopy height and maximum growth rate: 
+* All variants (SNPs) of _Sorghum Bicolor_: 
 
 ## Experimental Results:
 The following folders contained the results obtained for different experimental conditions.
