@@ -16,8 +16,9 @@ This work describes a novel approach to deduce the genetic basis of two phenotyp
 * **/target_correlation_matrix:** Contains target correlation matrices created based on phenotypic measurements.
 * **/SNP_outputs_v0.0.4:** Contains the list of candidate and significant SNP IDs extracted based on GWAS-filtered SNPs after execution our algorithm.
 * **/SNP_outputs_v0.0.5:** Contains the list of candidate and significant SNP IDs extracted based on all SNPs after execution our algorithm.
-* **/significant_SNPs:** TSV expansion of significant SNPs from the folders SNP_outputs_v0.0.4 and SNP_outputs_v0.0.5 showing snpEff annotation information
-* **/candidate_SNPs:** TSV expansion of candidate SNPs from the folders SNP_outputs_v0.0.4 and SNP_outputs_v0.0.5 showing snpEff annotation information
-* **/correlation_trend_v0.0.4:** Containining the plots depicting the correlation trend while adding SNPs to the "candidate" SNP list for the experiments based on GWAS-filtered SNPs
-* **/correlation_trend_v0.0.5:** Containining the plots depicting the correlation trend while adding SNPs to the "candidate" SNP list for the experiments based on all SNPs
-* **/codes:** Contains the codes used in this work 
+* **/significant_SNPs:** TSV expansion of significant SNPs from the folders SNP_outputs_v0.0.4 and SNP_outputs_v0.0.5 showing snpEff annotation information.
+* **/candidate_SNPs:** TSV expansion of candidate SNPs from the folders SNP_outputs_v0.0.4 and SNP_outputs_v0.0.5 showing snpEff annotation information.
+* **/correlation_trend_v0.0.4:** Containining the plots depicting the correlation trend while adding SNPs to the "candidate" SNP list for the experiments based on GWAS-filtered SNPs.
+* **/correlation_trend_v0.0.5:** Containining the plots depicting the correlation trend while adding SNPs to the "candidate" SNP list for the experiments based on all SNPs.
+* **/codes:** Contains the codes used in this work.
+* **/sorghum_panthar_outputs:**  
