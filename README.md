@@ -11,7 +11,7 @@ This work describes a novel approach to deduce the genetic basis of two phenotyp
 
 * Phenotypic trait data (end-of-season height) for Clemson for generalizability test: https://github.com/genophenoenvo/terraref-datasets 
 
-* GWAS-filtered SNPs of _Sorghum Bicolor_ based on phenotypes maximum canopy height and maximum growth rate at varipus p-values: https://github.com/genophenoenvo/sorghum_data/releases/tag/v0.0.4
+* GWAS-filtered SNPs of _Sorghum Bicolor_ based on phenotypes maximum canopy height and maximum growth rate at various p-values: https://github.com/genophenoenvo/sorghum_data/releases/tag/v0.0.4
 
 * All variants (SNPs) of _Sorghum Bicolor_: https://storage.googleapis.com/gpe-sorghum/whole-vcf-snp-arrays
 
