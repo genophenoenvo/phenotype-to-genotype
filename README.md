@@ -8,17 +8,28 @@ This work describes a novel approach to deduce the genetic basis of two phenotyp
 
 ## Datasets Used:
 * _Normalized_ phenotypic trait data for MAC Season 6: https://github.com/genophenoenvo/JAGS-logistic-growth
+
 * Phenotypic trait data (end-of-season height) for Clemson for generalizability test: https://github.com/genophenoenvo/terraref-datasets 
+
 * GWAS-filtered SNPs of _Sorghum Bicolor_ based on phenotypes maximum canopy height and maximum growth rate at varipus p-values: https://github.com/genophenoenvo/sorghum_data/releases/tag/v0.0.4
+
 * All variants (SNPs) of _Sorghum Bicolor_: https://storage.googleapis.com/gpe-sorghum/whole-vcf-snp-arrays
 
 ## Files and Folders:
 * **/target_correlation_matrix:** Contains target correlation matrices created based on phenotypic measurements.
+  
 * **/SNP_outputs_v0.0.4:** Contains the list of candidate and significant SNP IDs extracted based on GWAS-filtered SNPs after execution our algorithm.
+
 * **/SNP_outputs_v0.0.5:** Contains the list of candidate and significant SNP IDs extracted based on all SNPs after execution our algorithm.
+
 * **/significant_SNPs:** TSV expansion of significant SNPs from the folders SNP_outputs_v0.0.4 and SNP_outputs_v0.0.5 showing snpEff annotation information.
+
 * **/candidate_SNPs:** TSV expansion of candidate SNPs from the folders SNP_outputs_v0.0.4 and SNP_outputs_v0.0.5 showing snpEff annotation information.
+
 * **/correlation_trend_v0.0.4:** Containining the plots depicting the correlation trend while adding SNPs to the "candidate" SNP list for the experiments based on GWAS-filtered SNPs.
+
 * **/correlation_trend_v0.0.5:** Containining the plots depicting the correlation trend while adding SNPs to the "candidate" SNP list for the experiments based on all SNPs.
+
 * **/codes:** Contains the codes used in this work.
+
 * **/sorghum_panthar_outputs:**  
