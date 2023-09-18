@@ -16,6 +16,7 @@ def intersection(lst1, lst2):
     lst3 = [value for value in lst1 if value in lst2]
     return lst3
 
+'''
 def correlation_coefficient(target_corr, row_matrices):
     target_corr = target_corr.repeat(row_matrices.size(0),1,1)
     denominator = target_corr.std(dim=[1,2]) * row_matrices.std(dim=[1,2])
@@ -25,6 +26,7 @@ def correlation_coefficient(target_corr, row_matrices):
     target_corr = torch.mean(target_corr * row_matrices, dim=[1,2])
     result = target_corr / denominator
     return result
+'''
 
 def main(args):
     # For faster computation
@@ -90,7 +92,7 @@ def main(args):
     snp_list = []
     snp_list_ind = []
     corr_coeff = []
-    corr_coeff_temp = correlation_coefficient(cultivar_estimated_corr, row_matrices)
+    corr_coeff_temp = torch.mean(((cultivar_estimated_corr - cultivar_estimated_corr.mean())*(row_matrices - row_matrices.mean(dim=[1,2]).unsqueeze(1).unsqueeze(2))), dim=[1,2])/ (cultivar_estimated_corr.std() * row_matrices.std(dim=[1,2]))
     snp_list.append(row_matrices_index_list[torch.argmax(corr_coeff_temp).item()])
     snp_list_ind.append(torch.argmax(corr_coeff_temp).item())
     corr_coeff.append(torch.max(corr_coeff_temp).item())
@@ -108,7 +110,7 @@ def main(args):
         row_matrices_left = torch.FloatTensor(np.array([row_matrices_df_list[i] for i in row_matrices_left_ind])).to(device)
         row_matrices_left = row_matrices_left + row_matrices_processed.repeat(row_matrices_left.size(0),1,1) 
         del row_matrices_processed
-        corr = correlation_coefficient(cultivar_estimated_corr, row_matrices_left)
+        corr = torch.mean(((cultivar_estimated_corr - cultivar_estimated_corr.mean())*(row_matrices_left - row_matrices_left.mean(dim=[1,2]).unsqueeze(1).unsqueeze(2))), dim=[1,2])/ (cultivar_estimated_corr.std() * row_matrices_left.std(dim=[1,2]))
         snp_list.append(row_matrices_index_list[row_matrices_left_ind[torch.argmax(corr).item()]])
         snp_list_ind.append(row_matrices_left_ind[torch.argmax(corr).item()])
         corr_coeff.append(torch.max(corr).item())
@@ -118,19 +120,19 @@ def main(args):
     print("Execution Time:"+elapsed)
     print("Highest Correlation Achieved:" + str(round(max(corr_coeff),2)))
     snp_df = pd.DataFrame(snp_list) 
-    snp_df.to_csv(os.path.join(curr_wd, args.output_path, args.row_matrices.split(".")[4] + '_full_SNP_list.csv'), index=False, header=['SNP_ID']) 
+    snp_df.to_csv(os.path.join(curr_wd, args.output_path, 'candidate_SNPs', args.row_matrices.split(".")[4] + '_candidate_SNP_list.csv'), index=False, header=['SNP_ID']) 
     max_ind = torch.argmax(torch.tensor(corr_coeff, device="cpu"))
     filtered_snp_df = pd.DataFrame(snp_list[0:max_ind])
-    filtered_snp_df.to_csv(os.path.join(curr_wd, args.output_path, args.row_matrices.split(".")[4] + '_effective_SNP_list.csv'), index=False, header=['SNP_ID']) 
+    filtered_snp_df.to_csv(os.path.join(curr_wd, args.output_path, 'significant_SNPs', args.row_matrices.split(".")[4] + '_significant_SNP_list.csv'), index=False, header=['SNP_ID']) 
     print("Number of Effective SNPs:" + str(len(snp_list[0:max_ind])))
     
     plt.figure(figsize=(30,10))
-    plt.plot(corr_coeff, marker='x')
-    plt.title("Trend of Correlation Coefficient While Adding Features", fontsize=36)
+    plt.plot(corr_coeff, marker='x', color='black')
+    plt.title("Trend of Correlation Coefficient While Adding Features \n", fontsize=36)
     plt.xlabel("Index", fontsize=30)
     plt.tick_params(axis='both', labelsize=28)
-    plt.ylabel("Correlation Coeeficient", fontsize=30)
-    plt.savefig(os.path.join(curr_wd, args.save_plot_path, args.row_matrices.split(".")[4]+"_correlation_trend.png"))
+    plt.ylabel("Correlation Coefficient", fontsize=30)
+    plt.savefig(os.path.join(curr_wd, args.save_plot_path, args.row_matrices.split(".")[4]+"_correlation_trend.jpg"))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="phenotype-to-genotype")
@@ -138,12 +140,12 @@ if __name__ == '__main__':
     parser.add_argument('--gpu_device', default="7", help="GPU devices to be used")
     # input details
     parser.add_argument('--phenotype_file', type=str, default='https://raw.githubusercontent.com/genophenoenvo/JAGS-logistic-growth/main/data_clean/mac_growth_rate_modeled_season6.csv')
-    parser.add_argument('--phenotype', type=str, default='max_growth_cm_gdd', choices=['max_growth_cm_gdd','max_height_cm'], help='PhenoCam Site ID')
+    parser.add_argument('--phenotype', type=str, default='max_height_cm', choices=['max_growth_cm_gdd','max_height_cm'], help='Phenotype')
     parser.add_argument('--row_matrices_path', type=str, default= 'row_matrices_v0.0.4',help = 'full path of row_matrices given in tar.gz format')
-    parser.add_argument('--row_matrices', type=str, default= 'sorghum.filtered.season4.season6.max_growth_cm_gdd_p0005_qtl.row_matrices.tar.gz',help = 'full path of row_matrices given in tar.gz format')
-    parser.add_argument('--num_iterations', type=int, default=None)
+    parser.add_argument('--row_matrices', type=str, default= 'sorghum.filtered.season4.season6.max_height_cm_p001.row_matrices.tar.gz',help = 'full path of row_matrices given in tar.gz format')
+    parser.add_argument('--num_iterations', type=int, default=1000)
     # output path details
-    parser.add_argument('--target_path', type=str, default='target_correlation_matrix')
+    parser.add_argument('--target_path', type=str, default='target_correlation_matrix/MAC_season_6')
     parser.add_argument('--output_path', type=str, default='SNP_outputs_v0.0.4')
     parser.add_argument('--save_plot_path', type=str, default='correlation_trend_plots_v0.0.4')
     args = parser.parse_args()
