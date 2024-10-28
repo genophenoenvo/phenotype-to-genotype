@@ -2,7 +2,7 @@
 </h1>
 
 ## Abstract
-This study presents an innovative approach for understanding the genetic underpinnings of  two key phenotypes in Sorghum bicolor: maximum canopy height and maximum growth rate. Genome-Wide Association Studies (GWAS) are widely used to decipher the genetic basis of traits in organisms, but the challenge lies in selecting an appropriate statistically significant threshold for analysis. Our goal was to employ GWAS to pinpoint the genetic markers associated with the phenotypes of interest using specific permissive-filtered threshold values that allows the inclusion of broader collections of explanatory candidate genes. Then, we utilized a pattern recognition technique to prioritize a set of informative genes, which hold potential for further investigation and could find applications in Artificial Intelligence systems. Utilizing a subset of the Sorghum Bioenergy Association Panel cultivated at the Maricopa Agricultural Center in Arizona, we sought to unveil patterns between phenotypic similarity and genetic proximity among accessions in order to organize Single Nucleotide Polymorphisms (SNPs) which are likely to be associated with the phenotypic trait. Additionally, we explored the impact of this method by considering all SNPs versus focusing on SNPs classified through the GWAS pre-filter. Experimental results indicated that our approach effectively prioritizes SNPs and genes influencing the phenotype of interest. Moreover, this methodology holds promise for feature selection from genomic data for predicting complex phenotypic traits influenced by numerous genes and environmental conditions, and could pave the way for further research in this field.
+Genome-Wide Association Studies (GWAS) are widely used to infer the genetic basis of traits in organisms, yet selecting appropriate thresholds for analysis remains a significant challenge. In this study, we developed the Sequential SNP Prioritization Algorithm (SSPA) to elucidate the genetic underpinnings of two key phenotypes in Sorghum bicolor: maximum canopy height and maximum growth rate. Utilizing a subset of the Sorghum Bioenergy Association Panel cultivated at the Mar-icopa Agricultural Center in Arizona, our objective was to employ GWAS with specific permis-sive-filtered thresholds to identify the genetic markers associated with these traits, allowing for a broader collection of explanatory candidate genes. Following this, our proposed method incorpo-rates a feature engineering approach based on statistical correlation coefficient to reveal patterns between phenotypic similarity and genetic proximity across 274 accessions. This approach helps prioritize Single Nucleotide Polymorphisms (SNPs) likely to be associated with the studied phe-notype. Additionally, we evaluated the impact of SSPA by considering all variants (SNPs) as inputs, without any GWAS filtering, as a complementary analysis. Empirical evidence including ontolo-gy-based gene function, spatial and temporal expression, and similarity to known homologs, demonstrated that SSPA effectively prioritizes SNPs and genes influencing the phenotype of in-terest, providing valuable insights for functional genetics research.
 
 ## Pipeline of Our Method
 ![Image not available.](figures/Figure1.jpg)
@@ -17,13 +17,13 @@ This study presents an innovative approach for understanding the genetic underpi
 * All variants (SNPs) of _Sorghum Bicolor_: https://storage.googleapis.com/gpe-sorghum/whole-vcf-snp-arrays
 
 ## Files and Folders:
-* **/target_correlation_matrix:** Contains target correlation matrices created based on phenotypic measurements.
+* **/target_correlation_matrix:** Contains phenotype similarity matrices created based on phenotypic measurements.
   
-* **/SNP_outputs_v0.0.4:** Contains the list of candidate and significant SNP IDs extracted based on GWAS-filtered SNPs after execution our algorithm.
+* **/SNP_outputs_v0.0.4:** Contains the list of candidate and prioritized SNP IDs extracted based on GWAS-filtered SNPs after execution our algorithm.
 
-* **/SNP_outputs_v0.0.5:** Contains the list of candidate and significant SNP IDs extracted based on all SNPs after execution our algorithm.
+* **/SNP_outputs_v0.0.5:** Contains the list of candidate and prioritized SNP IDs extracted based on all SNPs after execution our algorithm.
 
-* **/significant_SNPs:** TSV expansion of significant SNPs from the folders SNP_outputs_v0.0.4 and SNP_outputs_v0.0.5 showing snpEff annotation information.
+* **/significant_SNPs:** TSV expansion of prioritized SNPs from the folders SNP_outputs_v0.0.4 and SNP_outputs_v0.0.5 showing snpEff annotation information.
 
 * **/candidate_SNPs:** TSV expansion of candidate SNPs from the folders SNP_outputs_v0.0.4 and SNP_outputs_v0.0.5 showing snpEff annotation information.
 
