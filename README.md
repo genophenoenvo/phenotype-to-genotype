@@ -5,7 +5,7 @@
 Genome-Wide Association Studies (GWAS) are widely used to infer the genetic basis of traits in organisms, yet selecting appropriate thresholds for analysis remains a significant challenge. In this study, we developed the Sequential SNP Prioritization Algorithm (SSPA) to elucidate the genetic underpinnings of two key phenotypes in Sorghum bicolor: maximum canopy height and maximum growth rate. Utilizing a subset of the Sorghum Bioenergy Association Panel cultivated at the Mar-icopa Agricultural Center in Arizona, our objective was to employ GWAS with specific permis-sive-filtered thresholds to identify the genetic markers associated with these traits, allowing for a broader collection of explanatory candidate genes. Following this, our proposed method incorpo-rates a feature engineering approach based on statistical correlation coefficient to reveal patterns between phenotypic similarity and genetic proximity across 274 accessions. This approach helps prioritize Single Nucleotide Polymorphisms (SNPs) likely to be associated with the studied phe-notype. Additionally, we evaluated the impact of SSPA by considering all variants (SNPs) as inputs, without any GWAS filtering, as a complementary analysis. Empirical evidence including ontolo-gy-based gene function, spatial and temporal expression, and similarity to known homologs, demonstrated that SSPA effectively prioritizes SNPs and genes influencing the phenotype of in-terest, providing valuable insights for functional genetics research.
 
 ## Pipeline of Our Method
-![Image not available.](figures/Outline.pdf)
+![Image not available.](figures/Outline.jpg)
 
 ## Datasets Used:
 * _Normalized_ phenotypic trait data for MAC Season 6: https://github.com/genophenoenvo/JAGS-logistic-growth
