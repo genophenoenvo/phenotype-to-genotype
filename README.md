@@ -6,6 +6,8 @@ Genome-wide association studies (GWAS) are widely used to infer the genetic basi
 
 <b>Link to paper:</b>  https://doi.org/10.3390/agronomy14122894
 
+<b>Cite as:</b> Pal, D., Schaper, K., Thompson, A., Guo, J., Jaiswal, P., Lisle, C., Cooper, L., LeBauer, D., Thessen, A. E., & Ross, A. Post-GWAS Prioritization of Genome–Phenome Association in Sorghum. Agronomy, 14(12), 2894, 2024, doi: 10.3390/agronomy14122894
+
 ## Pipeline of Our Method
 ![Image not available.](figures/Outline.jpg)
 
